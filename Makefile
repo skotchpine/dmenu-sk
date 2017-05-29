@@ -30,3 +30,10 @@ ${OBJ}: arg.h config.h drw.h
 dmenu: dmenu.o drw.o util.o
 	@echo CC -o $@
 	@${CC} -o $@ dmenu.o drw.o util.o ${LDFLAGS}
+
+install:
+	mkdir -p $(DESTDIR)$(PREFIX)/bin/
+	cp -f dmenu $(DESTDIR)$(PREFIX)/bin/
+	cp -f script/dmenu_path $(DESTDIR)$(PREFIX)/bin/
+	cp -f script/dmenu_run $(DESTDIR)$(PREFIX)/bin/
+
