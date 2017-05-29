@@ -19,7 +19,7 @@ CC = cc
 SRC = drw.c dmenu.c stest.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: dmenu
+all: dmenu stest
 
 .c.o:
 	@echo CC $<
@@ -34,6 +34,7 @@ dmenu: dmenu.o drw.o util.o
 install:
 	mkdir -p $(DESTDIR)$(PREFIX)/bin/
 	cp -f dmenu $(DESTDIR)$(PREFIX)/bin/
+	cp -f stest $(DESTDIR)$(PREFIX)/bin/
 	cp -f script/dmenu_path $(DESTDIR)$(PREFIX)/bin/
 	cp -f script/dmenu_run $(DESTDIR)$(PREFIX)/bin/
 
