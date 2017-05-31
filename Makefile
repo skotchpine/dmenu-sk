@@ -10,9 +10,9 @@ FREETYPEINC = /usr/include/freetype2
 INCS = -I${X11INC} -I${FREETYPEINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
-CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"0.0\" ${XINERAMAFLAGS}
-CFLAGS   = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
-LDFLAGS  = -s ${LIBS}
+CPPFLAGS += -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"0.0\" ${XINERAMAFLAGS}
+CFLAGS   += -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
+LDFLAGS  += -s ${LIBS}
 
 CC = cc
 
@@ -37,4 +37,7 @@ install:
 	cp -f stest $(DESTDIR)$(PREFIX)/bin/
 	cp -f script/dmenu_path $(DESTDIR)$(PREFIX)/bin/
 	cp -f script/dmenu_run $(DESTDIR)$(PREFIX)/bin/
+
+clean:
+	rm -f dmenu dmenu.o stest stest.o drw.o util.o
 
